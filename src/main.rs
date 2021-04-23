@@ -102,7 +102,7 @@ fn print_udp(sockets: &Vec<SocketInfo>) {
         };
 
         println!(
-            "UDP{:3}{:>30} : {:<5}{:30}",
+            "UDP{:3}{:>30} : {:<8}{:30}",
             ip_ver,
             s.local_addr,
             s.local_port,
