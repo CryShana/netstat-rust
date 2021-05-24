@@ -8,5 +8,9 @@ Because the windows netstat tool doesn't show all processes in user mode - and a
 
 This also displays everything sorted by port and is formatted in a way that suits me.
 
-### Screenshot
+### Screenshots
 ![Image](https://cryshana.me/f/bKIhLl1XHqWq.png)
+
+Using `sls` on PowerShell: (or `grep` on linux)
+
+![Image](https://cryshana.me/f/Jw9P5KqStz5R.png)
