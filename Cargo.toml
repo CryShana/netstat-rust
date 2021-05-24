@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 netstat2 = "0.9.1"
 sysinfo = "0.17.2"
+termcolor = "1.1.2"

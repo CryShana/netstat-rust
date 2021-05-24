@@ -65,9 +65,9 @@ fn print_tcp(sockets: &Vec<SocketInfo>) {
 
         if s.state == Some(TcpState::Listen) {
             println!(
-                "TCP{:3}{:>30} : {:>5}    {:<5}   {:<30}{:30}[{}]",
+                "TCP{:3}{:>30}:{:>5}    {:>6} {:<30}{:30}[{}]",
                 ip_ver,
-                s.local_addr,
+                format!("{}", s.local_addr),
                 s.local_port,
                 "",
                 "",
@@ -76,12 +76,12 @@ fn print_tcp(sockets: &Vec<SocketInfo>) {
             );
         } else {
             println!(
-                "TCP{:3}{:>30} : {:>5} -> {:<5} : {:<30}{:30}[{}]",
+                "TCP{:3}{:>30}:{:>5} -> {:>6}:{:<30}{:30}[{}]",
                 ip_ver,
-                s.local_addr,
+                format!("{}", s.local_addr),
                 s.local_port,
                 s.remote_port.unwrap(),
-                s.remote_addr.unwrap(),
+                format!("{}", s.remote_addr.unwrap()),
                 std::format!("{} ({})", s.processes[0].name, s.processes[0].pid),
                 s.state.unwrap()
             );
@@ -102,7 +102,7 @@ fn print_udp(sockets: &Vec<SocketInfo>) {
         };
 
         println!(
-            "UDP{:3}{:>30} : {:<8}{:30}",
+            "UDP{:3}{:>30}:{:<8}{:30}",
             ip_ver,
             s.local_addr,
             s.local_port,
