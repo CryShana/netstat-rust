@@ -2,7 +2,7 @@ use std::cmp::Ordering;
 
 use netstat2::*;
 use sysinfo;
-use sysinfo::{ProcessExt, System, SystemExt};
+use sysinfo::System;
 
 struct ProcessInfo {
     pid: u32,
@@ -130,7 +130,7 @@ fn get_sockets(sys: &System, addr: AddressFamilyFlags) -> Vec<SocketInfo> {
         let process_ids = si.associated_pids;
         let mut processes: Vec<ProcessInfo> = Vec::new();
         for pid in process_ids {
-            let name = match sys.get_process(pid as usize) {
+            let name = match sys.process((pid as usize).into()) {
                 Some(pinfo) => pinfo.name(),
                 None => "",
             };
